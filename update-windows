@@ -1,0 +1,11 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Verifica gli aggiornamenti disponibili su Windows
+      win_updates:
+        state: searched
+      register: updates_info
+
+    - name: Mostra gli aggiornamenti disponibili
+      debug:
+        var: updates_info
